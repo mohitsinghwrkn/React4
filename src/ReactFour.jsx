@@ -8,13 +8,13 @@ const ReactFour = () => {
   const [rateJPY, setRateJPY] = useState(148.313498);
 
   const TableStyle = { border: "1px solid black" };
-  const StyleImp = {border: '2px solid green'};
+  const StyleImp = { border: "2px solid green" };
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch();
-        //   "https://api.forexrateapi.com/v1/latest?api_key=becf972b57b5a4bd53cf5dde23a1308e&base=USD&currencies=EUR,INR,JPY"
+        ("https://api.forexrateapi.com/v1/latest?api_key=becf972b57b5a4bd53cf5dde23a1308e&base=USD&currencies=EUR,INR,JPY");
         const result = await response.json();
         setRateEUR(result.rates.EUR);
         setRateINR(result.rates.INR);
@@ -36,6 +36,7 @@ const ReactFour = () => {
         <p>Loading...</p>
       ) : (
         <div>
+          <b>React.js Task</b>
           <table>
             <tr>
               <th style={TableStyle}>Currency</th>
@@ -46,31 +47,31 @@ const ReactFour = () => {
             </tr>
             <tr>
               <th style={TableStyle}>INR</th>
-              <td style={{...TableStyle, ...StyleImp}}>1</td>
-              <td style={TableStyle}>{1/rateINR}</td>
-              <td style={TableStyle}>{1/rateINR*rateEUR}</td>
-              <td style={TableStyle}>{1/rateINR*rateJPY}</td>
+              <td style={{ ...TableStyle, ...StyleImp }}>1</td>
+              <td style={TableStyle}>{1 / rateINR}</td>
+              <td style={TableStyle}>{(1 / rateINR) * rateEUR}</td>
+              <td style={TableStyle}>{(1 / rateINR) * rateJPY}</td>
             </tr>
             <tr>
               <th style={TableStyle}>USD</th>
               <td style={TableStyle}>{rateINR}</td>
-              <td style={{...TableStyle, ...StyleImp}}>{rateUSD}</td>
+              <td style={{ ...TableStyle, ...StyleImp }}>{rateUSD}</td>
               <td style={TableStyle}>{rateEUR}</td>
               <td style={TableStyle}>{rateJPY}</td>
             </tr>
             <tr>
               <th style={TableStyle}>EUR</th>
-              <td style={TableStyle}>{1/rateEUR*rateINR}</td>
-              <td style={TableStyle}>{1/rateEUR}</td>
-              <td style={{...TableStyle, ...StyleImp}}>1</td>
-              <td style={TableStyle}>{1/rateEUR*rateJPY}</td>
+              <td style={TableStyle}>{(1 / rateEUR) * rateINR}</td>
+              <td style={TableStyle}>{1 / rateEUR}</td>
+              <td style={{ ...TableStyle, ...StyleImp }}>1</td>
+              <td style={TableStyle}>{(1 / rateEUR) * rateJPY}</td>
             </tr>
             <tr>
               <th style={TableStyle}>JPY</th>
-              <td style={TableStyle}>{1/rateJPY*rateINR}</td>
-              <td style={TableStyle}>{1/rateJPY}</td>
-              <td style={TableStyle}>{1/rateJPY*rateEUR}</td>
-              <td style={{...TableStyle, ...StyleImp}}>1</td>
+              <td style={TableStyle}>{(1 / rateJPY) * rateINR}</td>
+              <td style={TableStyle}>{1 / rateJPY}</td>
+              <td style={TableStyle}>{(1 / rateJPY) * rateEUR}</td>
+              <td style={{ ...TableStyle, ...StyleImp }}>1</td>
             </tr>
           </table>
         </div>
