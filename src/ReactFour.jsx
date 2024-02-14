@@ -13,8 +13,7 @@ const ReactFour = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch();
-        ("https://api.forexrateapi.com/v1/latest?api_key=becf972b57b5a4bd53cf5dde23a1308e&base=USD&currencies=EUR,INR,JPY");
+        const response = await fetch("https://api.forexrateapi.com/v1/latest?api_key=becf972b57b5a4bd53cf5dde23a1308e&base=USD&currencies=EUR,INR,JPY");
         const result = await response.json();
         setRateEUR(result.rates.EUR);
         setRateINR(result.rates.INR);
@@ -36,7 +35,6 @@ const ReactFour = () => {
         <p>Loading...</p>
       ) : (
         <div>
-          <b>React.js Task</b>
           <table>
             <tr>
               <th style={TableStyle}>Currency</th>
